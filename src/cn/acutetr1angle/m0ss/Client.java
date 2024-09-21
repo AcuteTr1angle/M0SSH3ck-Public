@@ -26,7 +26,7 @@ public class Client {
         moduleManager.init();
         commandManager.init();
 
-        Display.setTitle("Welcome " + Minecraft.getMinecraft().getSession().getUsername() + " | 你正在使用M0SSH3ck");
+        Display.setTitle("Welcome " + Minecraft.getMinecraft().getSession().getUsername() + "\u0020\u007c\u0020\u4f60\u6b63\u5728\u4f7f\u7528\u004d\u0030\u0053\u0053\u0048\u0033\u0063\u006b");
     }
 
     public void shutdown() {

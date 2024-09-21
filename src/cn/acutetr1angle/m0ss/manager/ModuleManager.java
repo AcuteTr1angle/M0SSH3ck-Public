@@ -1,7 +1,7 @@
 package cn.acutetr1angle.m0ss.manager;
 
 import cn.acutetr1angle.m0ss.Client;
-import cn.acutetr1angle.m0ss.features.modules.Client.Sprint;
+import cn.acutetr1angle.m0ss.features.modules.Player.Sprint;
 import cn.acutetr1angle.m0ss.features.modules.Module;
 
 import java.util.ArrayList;

@@ -1,5 +1,6 @@
 package net.minecraft.client.renderer;
 
+import cn.acutetr1angle.m0ss.features.modules.Render.NoHurtCam;
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
 import com.google.gson.JsonSyntaxException;
@@ -672,8 +673,10 @@ public class EntityRenderer implements IResourceManagerReloadListener
         }
     }
 
-    private void hurtCameraEffect(float partialTicks)  //全部注释掉就能实现nohurtcam
-    {
+    private void hurtCameraEffect(float partialTicks) {
+        if (NoHurtCam.INSTANCE.inOn()) {
+            return;
+        }
         if (this.mc.getRenderViewEntity() instanceof EntityLivingBase)
         {
             EntityLivingBase entitylivingbase = (EntityLivingBase)this.mc.getRenderViewEntity();
