@@ -9,10 +9,10 @@ public class FullBright extends Module {
     }
     @Override
     public void onEnable() {
-        mc.gameSettings.setOptionValue(GameSettings.Options.GAMMA,15);
+        mc.gameSettings.saturation = 15;
     }
     @Override
     public void onDisable() {
-        mc.gameSettings.setOptionValue(GameSettings.Options.GAMMA,1);
+        mc.gameSettings.saturation = 1;
     }
 }

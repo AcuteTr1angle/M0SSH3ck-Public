@@ -674,7 +674,7 @@ public class EntityRenderer implements IResourceManagerReloadListener
     }
 
     private void hurtCameraEffect(float partialTicks) {
-        if (NoHurtCam.INSTANCE.inOn()) {
+        if (NoHurtCam.isEnable) {
             return;
         }
         if (this.mc.getRenderViewEntity() instanceof EntityLivingBase)
