@@ -1,7 +1,6 @@
 package net.minecraft.client;
 
 import cn.acutetr1angle.m0ss.Client;
-import cn.acutetr1angle.m0ss.utils.RawInput;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
@@ -569,6 +568,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage
         this.effectRenderer = new EffectRenderer(this.theWorld, this.renderEngine);
         this.checkGLError("Post startup");
         this.ingameGUI = new GuiIngame(this);
+        new Client().init();
 
         if (this.serverName != null)
         {
@@ -599,8 +599,6 @@ public class Minecraft implements IThreadListener, IPlayerUsage
         }
 
         this.renderGlobal.makeEntityOutlineShader();
-
-        Client.start();
     }
 
     private void registerMetadataSerializers()
@@ -1057,7 +1055,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage
             this.stream.shutdownStream();
             logger.info("Stopping!");
 
-            Client.shutdown();
+            Client.instance.shutdown();
 
             try
             {

@@ -1,5 +1,7 @@
 package net.minecraft.client.entity;
 
+import cn.acutetr1angle.m0ss.Client;
+import cn.acutetr1angle.m0ss.features.command.Command;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.MovingSoundMinecartRiding;
 import net.minecraft.client.audio.PositionedSoundRecord;
@@ -42,15 +44,11 @@ import net.minecraft.potion.Potion;
 import net.minecraft.stats.StatBase;
 import net.minecraft.stats.StatFileWriter;
 import net.minecraft.tileentity.TileEntitySign;
-import net.minecraft.util.BlockPos;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.IChatComponent;
-import net.minecraft.util.MovementInput;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.*;
 import net.minecraft.world.IInteractionObject;
 import net.minecraft.world.World;
+
+import java.util.Arrays;
 
 public class EntityPlayerSP extends AbstractClientPlayer
 {
@@ -293,9 +291,18 @@ public class EntityPlayerSP extends AbstractClientPlayer
     /**
      * Sends a chat message from the player. Args: chatMessage
      */
-    public void sendChatMessage(String message)
-    {
-        this.sendQueue.addToSendQueue(new C01PacketChatMessage(message));
+    public void sendChatMessage(String message) {
+        if (message.startsWith(".")) {
+            String[] args = message.trim().substring(1).split(" ");
+            Command c = Client.instance.commandManager.getCommand(args[0]);
+            if (c != null) {
+                c.run(Arrays.copyOfRange(args, 1, args.length));
+            } else {
+                addChatMessage(new ChatComponentText(EnumChatFormatting.RED + "Unknown Command!"));
+            }
+        } else {
+            this.sendQueue.addToSendQueue(new C01PacketChatMessage(message));
+        }
     }
 
     /**
