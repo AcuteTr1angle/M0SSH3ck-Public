@@ -1,6 +1,7 @@
 package net.minecraft.client;
 
 import cn.acutetr1angle.m0ss.Client;
+import cn.acutetr1angle.m0ss.features.event.events.EventKey;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
@@ -1940,13 +1941,13 @@ public class Minecraft implements IThreadListener, IPlayerUsage
                     {
                         this.entityRenderer.switchUseShader();
                     }
-
                     if (this.currentScreen != null)
                     {
                         this.currentScreen.handleKeyboardInput();
                     }
                     else
                     {
+                        Client.instance.eventManager.call(new EventKey(k));
                         if (k == 1)
                         {
                             this.displayInGameMenu();

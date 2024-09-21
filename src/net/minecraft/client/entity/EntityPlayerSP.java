@@ -2,6 +2,7 @@ package net.minecraft.client.entity;
 
 import cn.acutetr1angle.m0ss.Client;
 import cn.acutetr1angle.m0ss.features.command.Command;
+import cn.acutetr1angle.m0ss.features.event.events.EventUpdate;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.MovingSoundMinecartRiding;
 import net.minecraft.client.audio.PositionedSoundRecord;
@@ -165,8 +166,9 @@ public class EntityPlayerSP extends AbstractClientPlayer
      */
     public void onUpdate()
     {
-        if (this.worldObj.isBlockLoaded(new BlockPos(this.posX, 0.0D, this.posZ)))
-        {
+        if (this.worldObj.isBlockLoaded(new BlockPos(this.posX, 0.0D, this.posZ))) {
+            Client.instance.eventManager.call(new EventUpdate());
+
             super.onUpdate();
 
             if (this.isRiding())
