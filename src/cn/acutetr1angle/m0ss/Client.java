@@ -1,5 +1,6 @@
 package cn.acutetr1angle.m0ss;
 
+import cn.acutetr1angle.m0ss.utils.RawInputMod;
 import net.minecraft.client.Minecraft;
 import org.lwjgl.opengl.Display;
 
