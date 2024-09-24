@@ -8,7 +8,7 @@ import org.lwjgl.opengl.Display;
 
 public class Client {
     public static final String NAME = "M0SSH3ck";
-    public static final String VERISON = "0.0.1";
+    public static final String VERISON = "0.0.2";
 
     public static Client instance;
     public EventManager eventManager;
