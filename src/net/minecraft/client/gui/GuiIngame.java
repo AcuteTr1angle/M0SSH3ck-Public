@@ -1,6 +1,6 @@
 package net.minecraft.client.gui;
 
-import cn.acutetr1angle.m0ss.Client;
+import acutetr1angle.m0ss.Client;
 import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;

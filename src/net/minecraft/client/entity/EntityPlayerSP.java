@@ -1,8 +1,8 @@
 package net.minecraft.client.entity;
 
-import cn.acutetr1angle.m0ss.Client;
-import cn.acutetr1angle.m0ss.features.command.Command;
-import cn.acutetr1angle.m0ss.event.events.EventUpdate;
+import acutetr1angle.m0ss.Client;
+import acutetr1angle.m0ss.features.command.Command;
+import acutetr1angle.m0ss.event.events.EventUpdate;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.MovingSoundMinecartRiding;
 import net.minecraft.client.audio.PositionedSoundRecord;

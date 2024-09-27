@@ -17,9 +17,11 @@ import joptsimple.OptionSpec;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.Session;
 
+import javax.swing.*;
+
 public class Main
 {
-    public static void main(String[] p_main_0_)
+    public static void doMain(JWindow splash, String[] p_main_0_)
     {
         System.setProperty("java.net.preferIPv4Stack", "true");
         OptionParser optionparser = new OptionParser();
@@ -110,6 +112,7 @@ public class Main
             }
         });
         Thread.currentThread().setName("Client thread");
+        splash.setVisible(false);
         (new Minecraft(gameconfiguration)).run();
     }
 

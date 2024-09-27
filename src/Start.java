@@ -1,11 +1,11 @@
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.reflect.Field;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.util.Arrays;
 
+import net.minecraft.client.main.LaunchWrapper;
 import net.minecraft.client.main.Main;
 
 public class Start
@@ -21,7 +21,7 @@ public class Start
 
         System.setProperty("java.library.path",nativePath);
         System.setProperty("org.lwjgl.librarypath",nativePath);
-        Main.main(concat(new String[] {"--version", "mcp", "--accessToken", "0", "--assetsDir", "assets", "--assetIndex", "1.8", "--userProperties", "{}"}, args));
+        LaunchWrapper.main(concat(new String[] {"--version", "mcp", "--accessToken", "0", "--assetsDir", "assets", "--assetIndex", "1.8", "--userProperties", "{}"}, args));
     }
 
     public static <T> T[] concat(T[] first, T[] second)

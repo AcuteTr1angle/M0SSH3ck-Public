@@ -1,6 +1,7 @@
 package acutetr1angle.m0ss.manager;
 
 import acutetr1angle.m0ss.Client;
+import acutetr1angle.m0ss.features.modules.Misc.AutoBMW;
 import acutetr1angle.m0ss.features.modules.Player.Sprint;
 import acutetr1angle.m0ss.features.modules.Module;
 import acutetr1angle.m0ss.features.modules.Render.FullBright;
@@ -18,6 +19,7 @@ public class ModuleManager {
         add(new Sprint());
         add(new FullBright());
         add(new NoHurtCam());
+        add(new AutoBMW());
     }
 
     public void add(Module module) {

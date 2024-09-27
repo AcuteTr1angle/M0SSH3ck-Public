@@ -1,7 +1,7 @@
 package net.minecraft.client;
 
-import cn.acutetr1angle.m0ss.Client;
-import cn.acutetr1angle.m0ss.event.events.EventKey;
+import acutetr1angle.m0ss.Client;
+import acutetr1angle.m0ss.event.events.EventKey;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
