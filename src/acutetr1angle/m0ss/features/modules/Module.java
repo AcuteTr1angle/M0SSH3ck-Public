@@ -4,8 +4,9 @@ package acutetr1angle.m0ss.features.modules;
 import acutetr1angle.m0ss.Client;
 import acutetr1angle.m0ss.utils.ChatUtil;
 import acutetr1angle.m0ss.utils.Wrapper;
+import lombok.Getter;
 import net.minecraft.util.EnumChatFormatting;
-
+@Getter
 public class Module implements Wrapper {
 
     public String name;

@@ -1,5 +1,7 @@
 package net.minecraft.network;
 
+import acutetr1angle.m0ss.Client;
+import acutetr1angle.m0ss.event.events.PacketEvent;
 import com.google.common.collect.Queues;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import io.netty.bootstrap.Bootstrap;
@@ -48,6 +50,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.Marker;
 import org.apache.logging.log4j.MarkerManager;
+
+import static acutetr1angle.m0ss.Client.mc;
 
 public class NetworkManager extends SimpleChannelInboundHandler<Packet>
 {
@@ -222,6 +226,13 @@ public class NetworkManager extends SimpleChannelInboundHandler<Packet>
      */
     private void dispatchPacket(final Packet inPacket, final GenericFutureListener <? extends Future <? super Void >> [] futureListeners)
     {
+        PacketEvent.Send send = new PacketEvent.Send(inPacket);
+        if (mc.thePlayer != null) {
+            Client.instance.getEventManager().call(send);
+        }
+        if (send.isCancelled()) {
+            return;
+        }
         final EnumConnectionState enumconnectionstate = EnumConnectionState.getFromPacket(inPacket);
         final EnumConnectionState enumconnectionstate1 = (EnumConnectionState)this.channel.attr(attrKeyConnectionState).get();
 

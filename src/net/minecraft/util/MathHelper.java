@@ -43,6 +43,16 @@ public class MathHelper
     {
         return fastMath ? SIN_TABLE_FAST[(int)(p_76126_0_ * radToIndex) & 4095] : SIN_TABLE[(int)(p_76126_0_ * 10430.378F) & 65535];
     }
+    public static float wrapDegrees(float value) {
+        float f = value % 360.0f;
+        if (f >= 180.0f) {
+            f -= 360.0f;
+        }
+        if (f < -180.0f) {
+            f += 360.0f;
+        }
+        return f;
+    }
 
     /**
      * cos looked up in the sin table with the appropriate offset

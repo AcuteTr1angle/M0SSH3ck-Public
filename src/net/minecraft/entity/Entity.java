@@ -4,6 +4,9 @@ import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.Callable;
+
+import acutetr1angle.m0ss.Client;
+import acutetr1angle.m0ss.event.events.StrafeEvent;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFence;
 import net.minecraft.block.BlockFenceGate;
@@ -53,6 +56,7 @@ public abstract class Entity implements ICommandSender
     private static int nextEntityID;
     private int entityId;
     public double renderDistanceWeight;
+    public float movementYaw, velocityYaw, lastMovementYaw;
 
     /**
      * Blocks entities from spawning when they do their AABB check to make sure the spot is clear of entities that can
@@ -1223,6 +1227,14 @@ public abstract class Entity implements ICommandSender
      */
     public void moveFlying(float strafe, float forward, float friction)
     {
+        StrafeEvent event = new StrafeEvent(strafe,forward,friction,this.rotationYaw);
+        Client.instance.getEventManager().call(event);
+        if (event.isCancelled()) {
+            return;
+        }
+        strafe = event.getStrafe();
+        forward = event.getForward();
+        friction = event.getFriction();
         float f = strafe * strafe + forward * forward;
 
         if (f >= 1.0E-4F)
@@ -1237,8 +1249,8 @@ public abstract class Entity implements ICommandSender
             f = friction / f;
             strafe = strafe * f;
             forward = forward * f;
-            float f1 = MathHelper.sin(this.rotationYaw * (float)Math.PI / 180.0F);
-            float f2 = MathHelper.cos(this.rotationYaw * (float)Math.PI / 180.0F);
+            float f1 = MathHelper.sin(event.getYaw() * (float)Math.PI / 180.0F);
+            float f2 = MathHelper.cos(event.getYaw() * (float)Math.PI / 180.0F);
             this.motionX += (double)(strafe * f2 - forward * f1);
             this.motionZ += (double)(forward * f2 + strafe * f1);
         }

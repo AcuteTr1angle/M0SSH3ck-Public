@@ -1,5 +1,7 @@
 package net.minecraft.entity;
 
+import acutetr1angle.m0ss.Client;
+import acutetr1angle.m0ss.event.events.JumpEvent;
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
 import com.google.common.collect.Maps;
@@ -12,6 +14,7 @@ import java.util.UUID;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.BaseAttributeMap;
@@ -1566,16 +1569,25 @@ public abstract class EntityLivingBase extends Entity
      */
     protected void jump()
     {
-        this.motionY = (double)this.getJumpUpwardsMotion();
+        JumpEvent event = new JumpEvent(this.rotationYaw,this.getJumpUpwardsMotion());
+        this.motionY = event.getMotion();
+
 
         if (this.isPotionActive(Potion.jump))
         {
             this.motionY += (double)((float)(this.getActivePotionEffect(Potion.jump).getAmplifier() + 1) * 0.1F);
         }
-
+        if (this instanceof EntityPlayerSP) {
+            Client.instance.getEventManager().call(event);
+            this.movementYaw = event.getYaw();
+            this.velocityYaw = event.getYaw();
+            if (event.isCancelled()) {
+                return;
+            }
+        }
         if (this.isSprinting())
         {
-            float f = this.rotationYaw * 0.017453292F;
+            float f = event.getYaw() * 0.017453292F;
             this.motionX -= (double)(MathHelper.sin(f) * 0.2F);
             this.motionZ += (double)(MathHelper.cos(f) * 0.2F);
         }

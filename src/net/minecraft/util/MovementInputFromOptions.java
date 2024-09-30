@@ -1,5 +1,7 @@
 package net.minecraft.util;
 
+import acutetr1angle.m0ss.Client;
+import acutetr1angle.m0ss.event.events.MovementInputEvent;
 import net.minecraft.client.settings.GameSettings;
 
 public class MovementInputFromOptions extends MovementInput
@@ -38,6 +40,11 @@ public class MovementInputFromOptions extends MovementInput
 
         this.jump = this.gameSettings.keyBindSneak.isKeyDown();
         this.sneak = this.gameSettings.keyBindSprint.isKeyDown();
+
+        MovementInputEvent event = new MovementInputEvent(moveForward,moveStrafe);
+        Client.instance.getEventManager().call(event);
+        moveForward = event.getForward();
+        moveStrafe = event.getStrafe();
 
         if (this.sneak)
         {

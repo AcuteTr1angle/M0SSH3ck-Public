@@ -1,10 +1,14 @@
 package net.minecraft.network;
 
+import acutetr1angle.m0ss.event.events.PacketEvent;
+import acutetr1angle.m0ss.Client;
 import net.minecraft.network.play.server.S01PacketJoinGame;
 import net.minecraft.network.play.server.S07PacketRespawn;
 import net.minecraft.network.play.server.S08PacketPlayerPosLook;
 import net.minecraft.src.Config;
 import net.minecraft.util.IThreadListener;
+
+import static acutetr1angle.m0ss.Client.mc;
 
 public class PacketThreadUtil
 {
@@ -26,6 +30,13 @@ public class PacketThreadUtil
         }
         else
         {
+            PacketEvent.Receive receive = new PacketEvent.Receive(p_180031_0_);
+            if (mc.thePlayer != null) {
+                Client.instance.getEventManager().call(receive);
+            }
+            if (receive.isCancelled()) {
+                return;
+            }
             clientPreProcessPacket(p_180031_0_);
         }
     }

@@ -1745,6 +1745,10 @@ public class Minecraft implements IThreadListener, IPlayerUsage
      */
     public void runTick() throws IOException
     {
+        if (thePlayer != null) {
+            thePlayer.lastMovementYaw = thePlayer.movementYaw;
+            thePlayer.movementYaw = thePlayer.velocityYaw = thePlayer.rotationYaw;
+        }
         if (this.rightClickDelayTimer > 0)
         {
             --this.rightClickDelayTimer;
