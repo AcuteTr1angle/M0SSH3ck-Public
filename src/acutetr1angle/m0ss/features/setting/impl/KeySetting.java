@@ -8,12 +8,14 @@ import lombok.Setter;
 @Setter
 public class KeySetting extends Setting {
     private final int keyBind,defaultKey;
+    private int key;
     public boolean precondition;
     public KeySetting(String name, int keyBind, int defaultKey){
         this(name,keyBind, defaultKey,true);
     }
     public KeySetting(String name, int keyBind, int defaultKey, boolean precondition){
         super(name);
+        this.key = defaultKey;
         this.keyBind = keyBind;
         this.defaultKey = defaultKey;
         this.precondition = precondition;

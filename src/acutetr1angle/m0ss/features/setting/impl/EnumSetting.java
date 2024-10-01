@@ -9,9 +9,10 @@ import lombok.Setter;
 public class EnumSetting<T extends Enum<T>> extends Setting {
     private final T defaultValue;
     public boolean precondition;
-
+    private T value;
     public EnumSetting(String name, T defaultValue) {
         super(name);
+        this.value = defaultValue;
         this.defaultValue = defaultValue;
     }
 }

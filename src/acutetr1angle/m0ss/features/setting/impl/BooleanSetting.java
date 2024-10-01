@@ -9,12 +9,13 @@ import lombok.Setter;
 public class BooleanSetting extends Setting {
     private final boolean defaultValue;
     public boolean precondition;
+    private boolean value;
     public BooleanSetting(String name,boolean defaultValue){
-        super(name);
-        this.defaultValue = defaultValue;
+        this(name,defaultValue,true);
     }
     public BooleanSetting(String name,boolean defaultValue,boolean precondition){
         super(name);
+        this.value = defaultValue;
         this.defaultValue = defaultValue;
         this.precondition = precondition;
     }

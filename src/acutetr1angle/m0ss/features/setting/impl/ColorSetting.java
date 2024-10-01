@@ -12,8 +12,10 @@ public class ColorSetting extends Setting {
     private final Color defaultValue;
     public boolean precondition;
     private boolean rainbowMode;
+    private Color value;
     public ColorSetting(String name, Color defaultValue) {
         super(name);
+        this.value = defaultValue;
         this.defaultValue = defaultValue;
     }
 }

@@ -7,6 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class SliderSetting extends Setting {
+    private double value;
     private final double defaultValue,MintValue,MaxValue,increment;
     public boolean precondition;
     public SliderSetting(String name, double defaultValue, double mintValue, double maxValue, boolean precondition){
@@ -14,6 +15,7 @@ public class SliderSetting extends Setting {
     }
     public SliderSetting(String name, double defaultValue, double mintValue, double maxValue,double increment, boolean precondition){
         super(name);
+        this.value = defaultValue;
         this.defaultValue = defaultValue;
         this.MintValue = mintValue;
         this.MaxValue = maxValue;
