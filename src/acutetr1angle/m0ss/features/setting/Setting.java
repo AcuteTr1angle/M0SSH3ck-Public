@@ -1,46 +1,18 @@
 package acutetr1angle.m0ss.features.setting;
 
-public class Setting<T>{
+import java.util.function.BooleanSupplier;
 
-    public final String Name;
-    public final T defaultValue;
-    public T Value;
-    private T Min;
-    private T Max;
+public class Setting{
+    private final String name;
+    public final BooleanSupplier precondition;
 
-    public Setting(String name, T defaultValue) {
-        this.Name = name;
-        this.defaultValue = defaultValue;
-        this.Value = defaultValue;
-        this.Min = defaultValue;
-        this.Max = defaultValue;
-    }
-    public Setting(String name, T defaultValue,T Value,T Min,T Max) {
-        this.Name = name;
-        this.defaultValue = defaultValue;
-        this.Value = Value;
-        this.Min = Min;
-        this.Max = Max;
+    public Setting(String name) {
+        this.name = name;
+        this.precondition = null;
     }
 
-    public T getMax() {
-        return Max;
+    public Setting(String name, BooleanSupplier precondition) {
+        this.name = name;
+        this.precondition = precondition;
     }
-
-    public T getMin() {
-        return Min;
-    }
-
-    public T getDefaultValue() {
-        return defaultValue;
-    }
-
-    public T getValue() {
-        return Value;
-    }
-
-    public String getName() {
-        return Name;
-    }
-
 }
