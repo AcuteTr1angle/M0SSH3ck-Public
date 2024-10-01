@@ -14,6 +14,6 @@ public class Sprint extends Module {
 
     @EventTarget
     public void onUpdate(PlayerUpdateEvent event) {
-        if(legit.getValue)mc.gameSettings.keyBindInventory.pressed = true;
+        if(legit.isValue())mc.gameSettings.keyBindInventory.pressed = true;
     }
 }
