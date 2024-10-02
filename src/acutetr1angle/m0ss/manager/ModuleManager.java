@@ -1,8 +1,10 @@
 package acutetr1angle.m0ss.manager;
 
 import acutetr1angle.m0ss.Client;
+import acutetr1angle.m0ss.features.modules.Client.RawInput;
 import acutetr1angle.m0ss.features.modules.Combat.KillAura;
 import acutetr1angle.m0ss.features.modules.Misc.AutoBMW;
+import acutetr1angle.m0ss.features.modules.Movement.KeepSprint;
 import acutetr1angle.m0ss.features.modules.Movement.StrafeFix;
 import acutetr1angle.m0ss.features.modules.Player.Sprint;
 import acutetr1angle.m0ss.features.modules.Module;
@@ -11,7 +13,6 @@ import acutetr1angle.m0ss.features.modules.Render.NoHurtCam;
 import lombok.Getter;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 @Getter
 public class ModuleManager {
@@ -24,6 +25,8 @@ public class ModuleManager {
         add(new AutoBMW());
         add(new StrafeFix());
         add(new KillAura());
+        add(new RawInput()); //有神比问题不能使用
+        add(new KeepSprint());
     }
 
     public void add(Module module) {

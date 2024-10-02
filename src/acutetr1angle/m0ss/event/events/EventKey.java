@@ -10,8 +10,4 @@ public class EventKey extends CancellableEvent {
     public EventKey(int key) {
         this.key = key;
     }
-
-    public int getKey() {
-        return key;
-    }
 }
