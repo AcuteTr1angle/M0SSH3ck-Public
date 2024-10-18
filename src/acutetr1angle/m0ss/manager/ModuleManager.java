@@ -1,6 +1,8 @@
 package acutetr1angle.m0ss.manager;
 
 import acutetr1angle.m0ss.Client;
+import acutetr1angle.m0ss.event.annotations.EventTarget;
+import acutetr1angle.m0ss.event.events.EventKey;
 import acutetr1angle.m0ss.features.modules.Client.RawInput;
 import acutetr1angle.m0ss.features.modules.Movement.Fly;
 import acutetr1angle.m0ss.features.modules.Combat.KillAura;
@@ -41,6 +43,13 @@ public class ModuleManager {
             }
         }
         return null;
+    }
+
+    @EventTarget
+    public void onKey(EventKey e) {
+        moduleMap.values().stream()
+                .filter(module -> module.getKey() == e.getKey() && e.getKey() != -1)
+                .forEach(Module::toggle);
     }
 
     public Map<String, Module> getModuleMap() {

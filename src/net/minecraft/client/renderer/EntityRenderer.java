@@ -1386,7 +1386,7 @@ public class EntityRenderer implements IResourceManagerReloadListener
                 this.setupOverlayRendering();
                 this.renderEndNanoTime = System.nanoTime();
                 TileEntityRendererDispatcher.instance.renderEngine = this.mc.getTextureManager();
-                TileEntityRendererDispatcher.instance.FontRenderer = this.mc.FontRendererObj;
+                TileEntityRendererDispatcher.instance.FontRenderer = this.mc.fontRendererObj;
             }
 
             if (this.mc.currentScreen != null)

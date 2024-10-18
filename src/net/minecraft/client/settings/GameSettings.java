@@ -557,7 +557,7 @@ public class GameSettings
         if (settingsOption == GameSettings.Options.FORCE_UNICODE_FONT)
         {
             this.logger = !this.logger;
-            this.difficulty.FontRendererObj.setUnicodeFlag(this.difficulty.getLanguageManager().isCurrentLocaleUnicode() || this.logger);
+            this.difficulty.fontRendererObj.setUnicodeFlag(this.difficulty.getLanguageManager().isCurrentLocaleUnicode() || this.logger);
         }
 
         if (settingsOption == GameSettings.Options.FBO_ENABLE)
@@ -1950,7 +1950,7 @@ public class GameSettings
         if (p_setOptionValueOF_1_ == GameSettings.Options.CUSTOM_FONTS)
         {
             this.ofCustomFonts = !this.ofCustomFonts;
-            this.difficulty.FontRendererObj.onResourceManagerReload(Config.getResourceManager());
+            this.difficulty.fontRendererObj.onResourceManagerReload(Config.getResourceManager());
             this.difficulty.standardGalacticFontRenderer.onResourceManagerReload(Config.getResourceManager());
         }
 

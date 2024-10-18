@@ -20,6 +20,8 @@ public class Module implements Wrapper {
     private String author = "";
     private boolean expanded;
     public Category category;
+    public int key = -1;
+    public int MouseKey = -1;
 
 
     public Module(String name,Category category){

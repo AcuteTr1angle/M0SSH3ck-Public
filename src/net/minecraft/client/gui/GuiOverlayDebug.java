@@ -46,7 +46,7 @@ public class GuiOverlayDebug extends Gui
     public GuiOverlayDebug(Minecraft mc)
     {
         this.mc = mc;
-        this.FontRenderer = mc.FontRendererObj;
+        this.FontRenderer = mc.fontRendererObj;
     }
 
     public void renderDebugInfo(ScaledResolution scaledResolutionIn)

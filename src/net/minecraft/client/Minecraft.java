@@ -2,6 +2,7 @@ package net.minecraft.client;
 
 import acutetr1angle.m0ss.Client;
 import acutetr1angle.m0ss.event.events.EventKey;
+import acutetr1angle.m0ss.viamcp.viamcp.fixes.AttackOrder;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
@@ -239,7 +240,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage
     private boolean isGamePaused;
 
     /** The font renderer used for displaying and measuring text */
-    public FontRenderer FontRendererObj;
+    public FontRenderer fontRendererObj;
     public FontRenderer standardGalacticFontRenderer;
 
     /** The GuiScreen that's being displayed at the moment. */
@@ -506,16 +507,16 @@ public class Minecraft implements IThreadListener, IPlayerUsage
         this.mcSoundHandler = new SoundHandler(this.mcResourceManager, this.gameSettings);
         this.mcResourceManager.registerReloadListener(this.mcSoundHandler);
         this.mcMusicTicker = new MusicTicker(this);
-        this.FontRendererObj = new FontRenderer(this.gameSettings, new ResourceLocation("textures/font/ascii.png"), this.renderEngine, false);
+        this.fontRendererObj = new FontRenderer(this.gameSettings, new ResourceLocation("textures/font/ascii.png"), this.renderEngine, false);
 
         if (this.gameSettings.forceUnicodeFont != null)
         {
-            this.FontRendererObj.setUnicodeFlag(this.isUnicode());
-            this.FontRendererObj.setBidiFlag(this.mcLanguageManager.isCurrentLanguageBidirectional());
+            this.fontRendererObj.setUnicodeFlag(this.isUnicode());
+            this.fontRendererObj.setBidiFlag(this.mcLanguageManager.isCurrentLanguageBidirectional());
         }
 
         this.standardGalacticFontRenderer = new FontRenderer(this.gameSettings, new ResourceLocation("textures/font/ascii_sga.png"), this.renderEngine, false);
-        this.mcResourceManager.registerReloadListener(this.FontRendererObj);
+        this.mcResourceManager.registerReloadListener(this.fontRendererObj);
         this.mcResourceManager.registerReloadListener(this.standardGalacticFontRenderer);
         this.mcResourceManager.registerReloadListener(new GrassColorReloadListener());
         this.mcResourceManager.registerReloadListener(new FoliageColorReloadListener());
@@ -1418,8 +1419,8 @@ public class Minecraft implements IThreadListener, IPlayerUsage
             }
 
             int l2 = 16777215;
-            this.FontRendererObj.drawStringWithShadow(s, (float)(j - i), (float)(k - i / 2 - 16), l2);
-            this.FontRendererObj.drawStringWithShadow(s = decimalformat.format(profiler$result.field_76330_b) + "%", (float)(j + i - this.FontRendererObj.getStringWidth(s)), (float)(k - i / 2 - 16), l2);
+            this.fontRendererObj.drawStringWithShadow(s, (float)(j - i), (float)(k - i / 2 - 16), l2);
+            this.fontRendererObj.drawStringWithShadow(s = decimalformat.format(profiler$result.field_76330_b) + "%", (float)(j + i - this.fontRendererObj.getStringWidth(s)), (float)(k - i / 2 - 16), l2);
 
             for (int k2 = 0; k2 < list.size(); ++k2)
             {
@@ -1436,9 +1437,9 @@ public class Minecraft implements IThreadListener, IPlayerUsage
                 }
 
                 s1 = s1 + profiler$result2.field_76331_c;
-                this.FontRendererObj.drawStringWithShadow(s1, (float)(j - i), (float)(k + i / 2 + k2 * 8 + 20), profiler$result2.getColor());
-                this.FontRendererObj.drawStringWithShadow(s1 = decimalformat.format(profiler$result2.field_76332_a) + "%", (float)(j + i - 50 - this.FontRendererObj.getStringWidth(s1)), (float)(k + i / 2 + k2 * 8 + 20), profiler$result2.getColor());
-                this.FontRendererObj.drawStringWithShadow(s1 = decimalformat.format(profiler$result2.field_76330_b) + "%", (float)(j + i - this.FontRendererObj.getStringWidth(s1)), (float)(k + i / 2 + k2 * 8 + 20), profiler$result2.getColor());
+                this.fontRendererObj.drawStringWithShadow(s1, (float)(j - i), (float)(k + i / 2 + k2 * 8 + 20), profiler$result2.getColor());
+                this.fontRendererObj.drawStringWithShadow(s1 = decimalformat.format(profiler$result2.field_76332_a) + "%", (float)(j + i - 50 - this.fontRendererObj.getStringWidth(s1)), (float)(k + i / 2 + k2 * 8 + 20), profiler$result2.getColor());
+                this.fontRendererObj.drawStringWithShadow(s1 = decimalformat.format(profiler$result2.field_76330_b) + "%", (float)(j + i - this.fontRendererObj.getStringWidth(s1)), (float)(k + i / 2 + k2 * 8 + 20), profiler$result2.getColor());
             }
         }
     }
@@ -1528,7 +1529,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage
     {
         if (this.leftClickCounter <= 0)
         {
-            this.thePlayer.swingItem();
+            AttackOrder.sendConditionalSwing(this.objectMouseOver);
 
             if (this.objectMouseOver == null)
             {
@@ -1544,7 +1545,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage
                 switch (this.objectMouseOver.typeOfHit)
                 {
                     case ENTITY:
-                        this.playerController.attackEntity(this.thePlayer, this.objectMouseOver.entityHit);
+                        AttackOrder.sendFixedAttack(this.thePlayer, this.objectMouseOver.entityHit);
                         break;
 
                     case BLOCK:

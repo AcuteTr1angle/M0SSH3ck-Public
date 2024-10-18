@@ -68,7 +68,7 @@ public abstract class GuiScreen extends Gui implements GuiYesNoCallback
     public boolean allowUserInput;
 
     /** The FontRenderer used by GuiScreen */
-    protected FontRenderer FontRendererObj;
+    protected FontRenderer fontRendererObj;
 
     /** The button that was just pressed. */
     private GuiButton selectedButton;
@@ -200,7 +200,7 @@ public abstract class GuiScreen extends Gui implements GuiYesNoCallback
 
             for (String s : textLines)
             {
-                int j = this.FontRendererObj.getStringWidth(s);
+                int j = this.fontRendererObj.getStringWidth(s);
 
                 if (j > i)
                 {
@@ -245,7 +245,7 @@ public abstract class GuiScreen extends Gui implements GuiYesNoCallback
             for (int k1 = 0; k1 < textLines.size(); ++k1)
             {
                 String s1 = (String)textLines.get(k1);
-                this.FontRendererObj.drawStringWithShadow(s1, (float)l1, (float)i2, -1);
+                this.fontRendererObj.drawStringWithShadow(s1, (float)l1, (float)i2, -1);
 
                 if (k1 == 0)
                 {
@@ -356,7 +356,7 @@ public abstract class GuiScreen extends Gui implements GuiYesNoCallback
 
                     if (s1 != null)
                     {
-                        list.addAll(this.FontRendererObj.listFormattedStringToWidth(s1, 150));
+                        list.addAll(this.fontRendererObj.listFormattedStringToWidth(s1, 150));
                     }
 
                     this.drawHoveringText(list, x, y);
@@ -551,7 +551,7 @@ public abstract class GuiScreen extends Gui implements GuiYesNoCallback
     {
         this.mc = mc;
         this.itemRender = mc.getRenderItem();
-        this.FontRendererObj = mc.FontRendererObj;
+        this.fontRendererObj = mc.fontRendererObj;
         this.width = width;
         this.height = height;
         this.buttonList.clear();

@@ -2153,7 +2153,7 @@ public class Config
         int k = minecraft.renderGlobal.getCountEntitiesRendered();
         int l = minecraft.renderGlobal.getCountTileEntitiesRendered();
         String s1 = "" + i + "/" + getFpsMin() + " fps, C: " + j + ", E: " + k + "+" + l + ", U: " + s;
-        minecraft.FontRendererObj.drawString(s1, 2, 2, -2039584);
+        minecraft.fontRendererObj.drawString(s1, 2, 2, -2039584);
     }
 
     public static int getFpsMin()

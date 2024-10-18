@@ -1,5 +1,6 @@
 package net.minecraft.client.gui;
 
+import acutetr1angle.m0ss.viamcp.viamcp.gui.GuiProtocolSelector;
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
 import java.io.BufferedReader;
@@ -235,8 +236,8 @@ public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback
 
         synchronized (this.threadLock)
         {
-            this.field_92023_s = this.FontRendererObj.getStringWidth(this.openGLWarning1);
-            this.field_92024_r = this.FontRendererObj.getStringWidth(this.openGLWarning2);
+            this.field_92023_s = this.fontRendererObj.getStringWidth(this.openGLWarning1);
+            this.field_92024_r = this.fontRendererObj.getStringWidth(this.openGLWarning2);
             int k = Math.max(this.field_92023_s, this.field_92024_r);
             this.field_92022_t = (this.width - k) / 2;
             this.field_92021_u = ((GuiButton)this.buttonList.get(0)).yPosition - 24;
@@ -632,9 +633,9 @@ public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback
         GlStateManager.translate((float)(this.width / 2 + 90), 70.0F, 0.0F);
         GlStateManager.rotate(-20.0F, 0.0F, 0.0F, 1.0F);
         float f = 1.8F - MathHelper.abs(MathHelper.sin((float)(Minecraft.getSystemTime() % 1000L) / 1000.0F * (float)Math.PI * 2.0F) * 0.1F);
-        f = f * 100.0F / (float)(this.FontRendererObj.getStringWidth(this.splashText) + 32);
+        f = f * 100.0F / (float)(this.fontRendererObj.getStringWidth(this.splashText) + 32);
         GlStateManager.scale(f, f, f);
-        this.drawCenteredString(this.FontRendererObj, this.splashText, 0, -8, -256);
+        this.drawCenteredString(this.fontRendererObj, this.splashText, 0, -8, -256);
         GlStateManager.popMatrix();
         String s = "Minecraft 1.8.9";
 
@@ -654,28 +655,28 @@ public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback
 
                 if (!Strings.isNullOrEmpty(s1))
                 {
-                    this.drawString(this.FontRendererObj, s1, 2, this.height - (10 + l1 * (this.FontRendererObj.FONT_HEIGHT + 1)), 16777215);
+                    this.drawString(this.fontRendererObj, s1, 2, this.height - (10 + l1 * (this.fontRendererObj.FONT_HEIGHT + 1)), 16777215);
                 }
             }
 
             if (Reflector.ForgeHooksClient_renderMainMenu.exists())
             {
-                Reflector.call(Reflector.ForgeHooksClient_renderMainMenu, new Object[] {this, this.FontRendererObj, Integer.valueOf(this.width), Integer.valueOf(this.height)});
+                Reflector.call(Reflector.ForgeHooksClient_renderMainMenu, new Object[] {this, this.fontRendererObj, Integer.valueOf(this.width), Integer.valueOf(this.height)});
             }
         }
         else
         {
-            this.drawString(this.FontRendererObj, s, 2, this.height - 10, -1);
+            this.drawString(this.fontRendererObj, s, 2, this.height - 10, -1);
         }
 
         String s2 = "Copyright Mojang AB. Do not distribute!";
-        this.drawString(this.FontRendererObj, s2, this.width - this.FontRendererObj.getStringWidth(s2) - 2, this.height - 10, -1);
+        this.drawString(this.fontRendererObj, s2, this.width - this.fontRendererObj.getStringWidth(s2) - 2, this.height - 10, -1);
 
         if (this.openGLWarning1 != null && this.openGLWarning1.length() > 0)
         {
             drawRect(this.field_92022_t - 2, this.field_92021_u - 2, this.field_92020_v + 2, this.field_92019_w - 1, 1428160512);
-            this.drawString(this.FontRendererObj, this.openGLWarning1, this.field_92022_t, this.field_92021_u, -1);
-            this.drawString(this.FontRendererObj, this.openGLWarning2, (this.width - this.field_92024_r) / 2, ((GuiButton)this.buttonList.get(0)).yPosition - 12, -1);
+            this.drawString(this.fontRendererObj, this.openGLWarning1, this.field_92022_t, this.field_92021_u, -1);
+            this.drawString(this.fontRendererObj, this.openGLWarning2, (this.width - this.field_92024_r) / 2, ((GuiButton)this.buttonList.get(0)).yPosition - 12, -1);
         }
 
         super.drawScreen(mouseX, mouseY, partialTicks);

@@ -76,12 +76,12 @@ public class GuiPlayerTabOverlay extends Gui
 
         for (NetworkPlayerInfo networkplayerinfo : list)
         {
-            int k = this.mc.FontRendererObj.getStringWidth(this.getPlayerName(networkplayerinfo));
+            int k = this.mc.fontRendererObj.getStringWidth(this.getPlayerName(networkplayerinfo));
             i = Math.max(i, k);
 
             if (scoreObjectiveIn != null && scoreObjectiveIn.getRenderType() != IScoreObjectiveCriteria.EnumRenderType.HEARTS)
             {
-                k = this.mc.FontRendererObj.getStringWidth(" " + scoreboardIn.getValueFromObjective(networkplayerinfo.getGameProfile().getName(), scoreObjectiveIn).getScorePoints());
+                k = this.mc.fontRendererObj.getStringWidth(" " + scoreboardIn.getValueFromObjective(networkplayerinfo.getGameProfile().getName(), scoreObjectiveIn).getScorePoints());
                 j = Math.max(j, k);
             }
         }
@@ -124,33 +124,33 @@ public class GuiPlayerTabOverlay extends Gui
 
         if (this.header != null)
         {
-            list1 = this.mc.FontRendererObj.listFormattedStringToWidth(this.header.getFormattedText(), width - 50);
+            list1 = this.mc.fontRendererObj.listFormattedStringToWidth(this.header.getFormattedText(), width - 50);
 
             for (String s : list1)
             {
-                l1 = Math.max(l1, this.mc.FontRendererObj.getStringWidth(s));
+                l1 = Math.max(l1, this.mc.fontRendererObj.getStringWidth(s));
             }
         }
 
         if (this.footer != null)
         {
-            list2 = this.mc.FontRendererObj.listFormattedStringToWidth(this.footer.getFormattedText(), width - 50);
+            list2 = this.mc.fontRendererObj.listFormattedStringToWidth(this.footer.getFormattedText(), width - 50);
 
             for (String s2 : list2)
             {
-                l1 = Math.max(l1, this.mc.FontRendererObj.getStringWidth(s2));
+                l1 = Math.max(l1, this.mc.fontRendererObj.getStringWidth(s2));
             }
         }
 
         if (list1 != null)
         {
-            drawRect(width / 2 - l1 / 2 - 1, k1 - 1, width / 2 + l1 / 2 + 1, k1 + list1.size() * this.mc.FontRendererObj.FONT_HEIGHT, Integer.MIN_VALUE);
+            drawRect(width / 2 - l1 / 2 - 1, k1 - 1, width / 2 + l1 / 2 + 1, k1 + list1.size() * this.mc.fontRendererObj.FONT_HEIGHT, Integer.MIN_VALUE);
 
             for (String s3 : list1)
             {
-                int i2 = this.mc.FontRendererObj.getStringWidth(s3);
-                this.mc.FontRendererObj.drawStringWithShadow(s3, (float)(width / 2 - i2 / 2), (float)k1, -1);
-                k1 += this.mc.FontRendererObj.FONT_HEIGHT;
+                int i2 = this.mc.fontRendererObj.getStringWidth(s3);
+                this.mc.fontRendererObj.drawStringWithShadow(s3, (float)(width / 2 - i2 / 2), (float)k1, -1);
+                k1 += this.mc.fontRendererObj.FONT_HEIGHT;
             }
 
             ++k1;
@@ -198,11 +198,11 @@ public class GuiPlayerTabOverlay extends Gui
                 if (networkplayerinfo1.getGameType() == WorldSettings.GameType.SPECTATOR)
                 {
                     s1 = EnumChatFormatting.ITALIC + s1;
-                    this.mc.FontRendererObj.drawStringWithShadow(s1, (float)j2, (float)k2, -1862270977);
+                    this.mc.fontRendererObj.drawStringWithShadow(s1, (float)j2, (float)k2, -1862270977);
                 }
                 else
                 {
-                    this.mc.FontRendererObj.drawStringWithShadow(s1, (float)j2, (float)k2, -1);
+                    this.mc.fontRendererObj.drawStringWithShadow(s1, (float)j2, (float)k2, -1);
                 }
 
                 if (scoreObjectiveIn != null && networkplayerinfo1.getGameType() != WorldSettings.GameType.SPECTATOR)
@@ -223,13 +223,13 @@ public class GuiPlayerTabOverlay extends Gui
         if (list2 != null)
         {
             k1 = k1 + i4 * 9 + 1;
-            drawRect(width / 2 - l1 / 2 - 1, k1 - 1, width / 2 + l1 / 2 + 1, k1 + list2.size() * this.mc.FontRendererObj.FONT_HEIGHT, Integer.MIN_VALUE);
+            drawRect(width / 2 - l1 / 2 - 1, k1 - 1, width / 2 + l1 / 2 + 1, k1 + list2.size() * this.mc.fontRendererObj.FONT_HEIGHT, Integer.MIN_VALUE);
 
             for (String s4 : list2)
             {
-                int j5 = this.mc.FontRendererObj.getStringWidth(s4);
-                this.mc.FontRendererObj.drawStringWithShadow(s4, (float)(width / 2 - j5 / 2), (float)k1, -1);
-                k1 += this.mc.FontRendererObj.FONT_HEIGHT;
+                int j5 = this.mc.fontRendererObj.getStringWidth(s4);
+                this.mc.fontRendererObj.drawStringWithShadow(s4, (float)(width / 2 - j5 / 2), (float)k1, -1);
+                k1 += this.mc.fontRendererObj.FONT_HEIGHT;
             }
         }
     }
@@ -351,19 +351,19 @@ public class GuiPlayerTabOverlay extends Gui
                     int i1 = (int)((1.0F - f1) * 255.0F) << 16 | (int)(f1 * 255.0F) << 8;
                     String s = "" + (float)i / 2.0F;
 
-                    if (p_175247_5_ - this.mc.FontRendererObj.getStringWidth(s + "hp") >= p_175247_4_)
+                    if (p_175247_5_ - this.mc.fontRendererObj.getStringWidth(s + "hp") >= p_175247_4_)
                     {
                         s = s + "hp";
                     }
 
-                    this.mc.FontRendererObj.drawStringWithShadow(s, (float)((p_175247_5_ + p_175247_4_) / 2 - this.mc.FontRendererObj.getStringWidth(s) / 2), (float)p_175247_2_, i1);
+                    this.mc.fontRendererObj.drawStringWithShadow(s, (float)((p_175247_5_ + p_175247_4_) / 2 - this.mc.fontRendererObj.getStringWidth(s) / 2), (float)p_175247_2_, i1);
                 }
             }
         }
         else
         {
             String s1 = EnumChatFormatting.YELLOW + "" + i;
-            this.mc.FontRendererObj.drawStringWithShadow(s1, (float)(p_175247_5_ - this.mc.FontRendererObj.getStringWidth(s1)), (float)p_175247_2_, 16777215);
+            this.mc.fontRendererObj.drawStringWithShadow(s1, (float)(p_175247_5_ - this.mc.fontRendererObj.getStringWidth(s1)), (float)p_175247_2_, 16777215);
         }
     }
 

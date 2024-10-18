@@ -23,7 +23,7 @@ public class GuiScreenCapeOF extends GuiScreenOF
 
     public GuiScreenCapeOF(GuiScreen parentScreenIn)
     {
-        this.FontRenderer = Config.getMinecraft().FontRendererObj;
+        this.FontRenderer = Config.getMinecraft().fontRendererObj;
         this.parentScreen = parentScreenIn;
     }
 

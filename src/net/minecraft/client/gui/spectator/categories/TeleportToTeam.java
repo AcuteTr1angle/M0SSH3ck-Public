@@ -123,7 +123,7 @@ public class TeleportToTeam implements ISpectatorMenuView, ISpectatorMenuObject
 
             if (s.length() >= 2)
             {
-                i = Minecraft.getMinecraft().FontRendererObj.getColorCode(s.charAt(1));
+                i = Minecraft.getMinecraft().fontRendererObj.getColorCode(s.charAt(1));
             }
 
             if (i >= 0)

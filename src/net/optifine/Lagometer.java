@@ -141,10 +141,10 @@ public class Lagometer
                 GlStateManager.enableTexture2D();
                 int j2 = mc.displayHeight - 80;
                 int k2 = mc.displayHeight - 160;
-                mc.FontRendererObj.drawString("30", 2, k2 + 1, -8947849);
-                mc.FontRendererObj.drawString("30", 1, k2, -3881788);
-                mc.FontRendererObj.drawString("60", 2, j2 + 1, -8947849);
-                mc.FontRendererObj.drawString("60", 1, j2, -3881788);
+                mc.fontRendererObj.drawString("30", 2, k2 + 1, -8947849);
+                mc.fontRendererObj.drawString("30", 1, k2, -3881788);
+                mc.fontRendererObj.drawString("60", 2, j2 + 1, -8947849);
+                mc.fontRendererObj.drawString("60", 1, j2, -3881788);
                 GlStateManager.matrixMode(5889);
                 GlStateManager.popMatrix();
                 GlStateManager.matrixMode(5888);
@@ -160,7 +160,7 @@ public class Lagometer
                 int i2 = mc.displayHeight / scaledResolution.getScaleFactor() - 8;
                 GuiIngame guiingame = mc.ingameGUI;
                 GuiIngame.drawRect(l1 - 1, i2 - 1, l1 + 50, i2 + 10, -1605349296);
-                mc.FontRendererObj.drawString(" " + MemoryMonitor.getAllocationRateMb() + " MB/s", l1, i2, k1);
+                mc.fontRendererObj.drawString(" " + MemoryMonitor.getAllocationRateMb() + " MB/s", l1, i2, k1);
                 renderTimeNano = System.nanoTime() - i;
             }
         }
