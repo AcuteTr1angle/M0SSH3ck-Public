@@ -185,7 +185,7 @@ public class GuiTwitchUserMode extends GuiScreen
 
         for (IChatComponent ichatcomponent : this.field_152332_r)
         {
-            k = Math.max(k, this.fontRendererObj.getStringWidth(ichatcomponent.getFormattedText()));
+            k = Math.max(k, this.FontRendererObj.getStringWidth(ichatcomponent.getFormattedText()));
         }
 
         this.field_152334_t = this.width / 2 - k / 2;
@@ -229,13 +229,13 @@ public class GuiTwitchUserMode extends GuiScreen
     public void drawScreen(int mouseX, int mouseY, float partialTicks)
     {
         this.drawDefaultBackground();
-        this.drawCenteredString(this.fontRendererObj, this.field_152338_i.getUnformattedText(), this.width / 2, 70, 16777215);
+        this.drawCenteredString(this.FontRendererObj, this.field_152338_i.getUnformattedText(), this.width / 2, 70, 16777215);
         int i = 80;
 
         for (IChatComponent ichatcomponent : this.field_152332_r)
         {
-            this.drawString(this.fontRendererObj, ichatcomponent.getFormattedText(), this.field_152334_t, i, 16777215);
-            i += this.fontRendererObj.FONT_HEIGHT;
+            this.drawString(this.FontRendererObj, ichatcomponent.getFormattedText(), this.field_152334_t, i, 16777215);
+            i += this.FontRendererObj.FONT_HEIGHT;
         }
 
         super.drawScreen(mouseX, mouseY, partialTicks);

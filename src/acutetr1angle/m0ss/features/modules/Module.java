@@ -5,31 +5,38 @@ import acutetr1angle.m0ss.Client;
 import acutetr1angle.m0ss.utils.ChatUtil;
 import acutetr1angle.m0ss.utils.Wrapper;
 import lombok.Getter;
+import lombok.Setter;
 import net.minecraft.util.EnumChatFormatting;
+
 @Getter
+@Setter
 public class Module implements Wrapper {
 
     public String name;
-    public String introduce;
-    public Category category;
+    public String description;
     public boolean state;
+    public static int categoryCount;
+    public static float allowedClickGuiHeight = 300;
+    private String author = "";
+    private boolean expanded;
+    public Category category;
 
 
     public Module(String name,Category category){
         this.name = name;
-        this.introduce = "";
+        this.description = "";
         this.category = category;
         this.state = false;
     }
 
-    public Module(String name,String introduce,Category category){
+    public Module(String name, String description, Category category){
         this.name = name;
-        this.introduce = introduce;
+        this.description = description;
         this.category = category;
         this.state = false;
     }
 
-    public boolean inOn(){
+    public boolean isOn(){
         return this.state;
     }
 
@@ -39,7 +46,6 @@ public class Module implements Wrapper {
         this.state = true;
         ChatUtil.sendMessage(this.name + EnumChatFormatting.GREEN + " enabled");
     }
-
     public void disable() {
         onDisable();
         Client.instance.eventManager.unregister(this);
@@ -84,15 +90,13 @@ public class Module implements Wrapper {
     public void onRender2D() {
         
     }
-
-    public enum Category {
-        Combat,
-        Misc,
-        Movement,
-        Render,
-        Player,
-        Exploit,
-        Client
+    public enum Category{
+        PLAYER,
+        CLIENT,
+        RENDER,
+        COMBAT,
+        MOVEMENT,
+        MISC
     }
 
 }

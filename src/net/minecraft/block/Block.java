@@ -2,6 +2,9 @@ package net.minecraft.block;
 
 import java.util.List;
 import java.util.Random;
+
+import acutetr1angle.m0ss.Client;
+import acutetr1angle.m0ss.event.events.BlockAABBEvent;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -32,6 +35,8 @@ import net.minecraft.util.Vec3;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+
+import static acutetr1angle.m0ss.Client.mc;
 
 public class Block
 {
@@ -488,6 +493,16 @@ public class Block
      */
     public void addCollisionBoxesToList(World worldIn, BlockPos pos, IBlockState state, AxisAlignedBB mask, List<AxisAlignedBB> list, Entity collidingEntity)
     {
+        if (collidingEntity == mc.thePlayer) {
+            final AxisAlignedBB axisalignedbb = this.getCollisionBoundingBox(worldIn, pos, state);
+            final BlockAABBEvent event = new BlockAABBEvent(worldIn, (Block)(Object) this, pos, axisalignedbb, mask);
+            Client.instance.getEventManager().call(event);
+
+            if (event.getBoundingBox() != null && event.getMaskBoundingBox().intersectsWith(event.getBoundingBox())) {
+                list.add(event.getBoundingBox());
+            }
+            return;
+        }
         AxisAlignedBB axisalignedbb = this.getCollisionBoundingBox(worldIn, pos, state);
 
         if (axisalignedbb != null && mask.intersectsWith(axisalignedbb))

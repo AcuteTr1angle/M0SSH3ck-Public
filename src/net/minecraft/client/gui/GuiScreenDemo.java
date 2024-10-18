@@ -84,14 +84,14 @@ public class GuiScreenDemo extends GuiScreen
         this.drawDefaultBackground();
         int i = (this.width - 248) / 2 + 10;
         int j = (this.height - 166) / 2 + 8;
-        this.fontRendererObj.drawString(I18n.format("demo.help.title", new Object[0]), i, j, 2039583);
+        this.FontRendererObj.drawString(I18n.format("demo.help.title", new Object[0]), i, j, 2039583);
         j = j + 12;
         GameSettings gamesettings = this.mc.gameSettings;
-        this.fontRendererObj.drawString(I18n.format("demo.help.movementShort", new Object[] {GameSettings.getKeyDisplayString(gamesettings.keyBindLeft.getKeyCode()), GameSettings.getKeyDisplayString(gamesettings.keyBindBack.getKeyCode()), GameSettings.getKeyDisplayString(gamesettings.keyBindRight.getKeyCode()), GameSettings.getKeyDisplayString(gamesettings.keyBindJump.getKeyCode())}), i, j, 5197647);
-        this.fontRendererObj.drawString(I18n.format("demo.help.movementMouse", new Object[0]), i, j + 12, 5197647);
-        this.fontRendererObj.drawString(I18n.format("demo.help.jump", new Object[] {GameSettings.getKeyDisplayString(gamesettings.keyBindSneak.getKeyCode())}), i, j + 24, 5197647);
-        this.fontRendererObj.drawString(I18n.format("demo.help.inventory", new Object[] {GameSettings.getKeyDisplayString(gamesettings.keyBindUseItem.getKeyCode())}), i, j + 36, 5197647);
-        this.fontRendererObj.drawSplitString(I18n.format("demo.help.fullWrapped", new Object[0]), i, j + 68, 218, 2039583);
+        this.FontRendererObj.drawString(I18n.format("demo.help.movementShort", new Object[] {GameSettings.getKeyDisplayString(gamesettings.keyBindLeft.getKeyCode()), GameSettings.getKeyDisplayString(gamesettings.keyBindBack.getKeyCode()), GameSettings.getKeyDisplayString(gamesettings.keyBindRight.getKeyCode()), GameSettings.getKeyDisplayString(gamesettings.keyBindJump.getKeyCode())}), i, j, 5197647);
+        this.FontRendererObj.drawString(I18n.format("demo.help.movementMouse", new Object[0]), i, j + 12, 5197647);
+        this.FontRendererObj.drawString(I18n.format("demo.help.jump", new Object[] {GameSettings.getKeyDisplayString(gamesettings.keyBindSneak.getKeyCode())}), i, j + 24, 5197647);
+        this.FontRendererObj.drawString(I18n.format("demo.help.inventory", new Object[] {GameSettings.getKeyDisplayString(gamesettings.keyBindUseItem.getKeyCode())}), i, j + 36, 5197647);
+        this.FontRendererObj.drawSplitString(I18n.format("demo.help.fullWrapped", new Object[0]), i, j + 68, 218, 2039583);
         super.drawScreen(mouseX, mouseY, partialTicks);
     }
 }

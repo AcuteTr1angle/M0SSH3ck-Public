@@ -35,7 +35,7 @@ public class TileEntityRendererDispatcher
 {
     public Map<Class, TileEntitySpecialRenderer>  mapSpecialRenderers = Maps.newHashMap();
     public static TileEntityRendererDispatcher instance = new TileEntityRendererDispatcher();
-    public FontRenderer fontRenderer;
+    public FontRenderer FontRenderer;
 
     /** The player's current X position (same as playerX) */
     public static double staticPlayerX;
@@ -103,7 +103,7 @@ public class TileEntityRendererDispatcher
 
         this.renderEngine = textureManagerIn;
         this.entity = entityIn;
-        this.fontRenderer = fontrendererIn;
+        this.FontRenderer = fontrendererIn;
         this.entityYaw = entityIn.prevRotationYaw + (entityIn.rotationYaw - entityIn.prevRotationYaw) * partialTicks;
         this.entityPitch = entityIn.prevRotationPitch + (entityIn.rotationPitch - entityIn.prevRotationPitch) * partialTicks;
         this.entityX = entityIn.lastTickPosX + (entityIn.posX - entityIn.lastTickPosX) * (double)partialTicks;
@@ -206,7 +206,7 @@ public class TileEntityRendererDispatcher
 
     public FontRenderer getFontRenderer()
     {
-        return this.fontRenderer;
+        return this.FontRenderer;
     }
 
     public void preDrawBatch()

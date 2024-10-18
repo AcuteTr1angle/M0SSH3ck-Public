@@ -29,4 +29,11 @@ public abstract class CancellableEvent implements Event, Cancellable {
 	public boolean isCancelled() {
 		return cancelled;
 	}
+
+	/**
+	 * CancelEvent
+	 */
+	public void cancel() {
+		setCancelled(true);
+	}
 }

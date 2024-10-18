@@ -62,7 +62,9 @@ public class WorldRenderer
         this.rawFloatBuffer = this.byteBuffer.asFloatBuffer();
         SVertexBuilder.initVertexBuilder(this);
     }
-
+    public WorldRenderer color(int colorHex) {
+        return this.color(colorHex >> 16 & 255, colorHex >> 8 & 255, colorHex & 255, colorHex >> 24 & 255);
+    }
     private void growBuffer(int p_181670_1_)
     {
         if (p_181670_1_ > this.rawIntBuffer.remaining())

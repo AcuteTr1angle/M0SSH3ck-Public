@@ -1,5 +1,6 @@
 package acutetr1angle.m0ss.features.modules.Client;
 
+
 import acutetr1angle.m0ss.features.modules.Module;
 import acutetr1angle.m0ss.utils.RawMouseHelper;
 import lombok.Getter;
@@ -17,11 +18,10 @@ public class RawInput extends Module {
     public static int dy = 0;
     public static Mouse mouse;
     public RawInput() {
-        super("RawInput",Category.Client);
+        super("RawInput", Category.MISC);
     }
     private static ControllerEnvironment createDefaultEnvironment() throws ReflectiveOperationException {
-        Constructor<ControllerEnvironment> constructor = (Constructor<ControllerEnvironment>)
-                Class.forName("net.java.games.input.DefaultControllerEnvironment").getDeclaredConstructors()[0];
+        Constructor<ControllerEnvironment> constructor = (Constructor<ControllerEnvironment>) Class.forName("net.java.games.input.DefaultControllerEnvironment").getDeclaredConstructors()[0];
         constructor.setAccessible(true);
         return constructor.newInstance();
     }

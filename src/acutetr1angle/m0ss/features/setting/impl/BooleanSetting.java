@@ -19,4 +19,7 @@ public class BooleanSetting extends Setting {
         this.defaultValue = defaultValue;
         this.precondition = precondition;
     }
+    public boolean getValue() {
+        return this.value;
+    }
 }

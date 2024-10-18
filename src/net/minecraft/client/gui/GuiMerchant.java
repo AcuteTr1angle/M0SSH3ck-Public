@@ -73,8 +73,8 @@ public class GuiMerchant extends GuiContainer
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
     {
         String s = this.chatComponent.getUnformattedText();
-        this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 6, 4210752);
-        this.fontRendererObj.drawString(I18n.format("container.inventory", new Object[0]), 8, this.ySize - 96 + 2, 4210752);
+        this.FontRendererObj.drawString(s, this.xSize / 2 - this.FontRendererObj.getStringWidth(s) / 2, 6, 4210752);
+        this.FontRendererObj.drawString(I18n.format("container.inventory", new Object[0]), 8, this.ySize - 96 + 2, 4210752);
     }
 
     /**
@@ -191,16 +191,16 @@ public class GuiMerchant extends GuiContainer
             GlStateManager.enableLighting();
             this.itemRender.zLevel = 100.0F;
             this.itemRender.renderItemAndEffectIntoGUI(itemstack, i + 36, j + 24);
-            this.itemRender.renderItemOverlays(this.fontRendererObj, itemstack, i + 36, j + 24);
+            this.itemRender.renderItemOverlays(this.FontRendererObj, itemstack, i + 36, j + 24);
 
             if (itemstack1 != null)
             {
                 this.itemRender.renderItemAndEffectIntoGUI(itemstack1, i + 62, j + 24);
-                this.itemRender.renderItemOverlays(this.fontRendererObj, itemstack1, i + 62, j + 24);
+                this.itemRender.renderItemOverlays(this.FontRendererObj, itemstack1, i + 62, j + 24);
             }
 
             this.itemRender.renderItemAndEffectIntoGUI(itemstack2, i + 120, j + 24);
-            this.itemRender.renderItemOverlays(this.fontRendererObj, itemstack2, i + 120, j + 24);
+            this.itemRender.renderItemOverlays(this.FontRendererObj, itemstack2, i + 120, j + 24);
             this.itemRender.zLevel = 0.0F;
             GlStateManager.disableLighting();
 

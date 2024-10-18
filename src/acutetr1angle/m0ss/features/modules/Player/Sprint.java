@@ -7,13 +7,13 @@ import acutetr1angle.m0ss.features.setting.impl.BooleanSetting;
 
 public class Sprint extends Module {
     public Sprint() {
-        super("Sprint",Category.Player);
+        super("Sprint", Category.PLAYER);
     }
 
    public BooleanSetting legit = new BooleanSetting("legit",true);
 
     @EventTarget
     public void onUpdate(PlayerUpdateEvent event) {
-        if(legit.isValue())mc.gameSettings.keyBindInventory.pressed = true;
+        if(legit.getValue())mc.gameSettings.keyBindInventory.pressed = true;
     }
 }

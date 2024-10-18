@@ -19,11 +19,11 @@ public class GuiScreenCapeOF extends GuiScreenOF
     private long messageHideTimeMs;
     private String linkUrl;
     private GuiButtonOF buttonCopyLink;
-    private FontRenderer fontRenderer;
+    private FontRenderer FontRenderer;
 
     public GuiScreenCapeOF(GuiScreen parentScreenIn)
     {
-        this.fontRenderer = Config.getMinecraft().fontRendererObj;
+        this.FontRenderer = Config.getMinecraft().FontRendererObj;
         this.parentScreen = parentScreenIn;
     }
 
@@ -130,11 +130,11 @@ public class GuiScreenCapeOF extends GuiScreenOF
     public void drawScreen(int mouseX, int mouseY, float partialTicks)
     {
         this.drawDefaultBackground();
-        this.drawCenteredString(this.fontRenderer, this.title, this.width / 2, 20, 16777215);
+        this.drawCenteredString(this.FontRenderer, this.title, this.width / 2, 20, 16777215);
 
         if (this.message != null)
         {
-            this.drawCenteredString(this.fontRenderer, this.message, this.width / 2, this.height / 6 + 60, 16777215);
+            this.drawCenteredString(this.FontRenderer, this.message, this.width / 2, this.height / 6 + 60, 16777215);
 
             if (System.currentTimeMillis() > this.messageHideTimeMs)
             {

@@ -66,7 +66,7 @@ public class GuiConfirmOpenLink extends GuiYesNo
 
         if (this.showSecurityWarning)
         {
-            this.drawCenteredString(this.fontRendererObj, this.openLinkWarning, this.width / 2, 110, 16764108);
+            this.drawCenteredString(this.FontRendererObj, this.openLinkWarning, this.width / 2, 110, 16764108);
         }
     }
 

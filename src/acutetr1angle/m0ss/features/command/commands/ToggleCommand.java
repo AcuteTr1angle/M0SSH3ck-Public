@@ -8,7 +8,7 @@ import net.minecraft.util.EnumChatFormatting;
 
 public class ToggleCommand extends Command {
     public ToggleCommand() {
-        super("toggle");
+        super("toggle","t");
     }
     @Override
     public void run(String[] args) {

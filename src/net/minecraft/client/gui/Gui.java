@@ -7,6 +7,8 @@ import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.util.ResourceLocation;
 
+import static org.lwjgl.opengl.GL11.GL_QUADS;
+
 public class Gui
 {
     public static final ResourceLocation optionsBackground = new ResourceLocation("textures/gui/options_background.png");
@@ -82,7 +84,6 @@ public class Gui
         GlStateManager.enableTexture2D();
         GlStateManager.disableBlend();
     }
-
     /**
      * Draws a rectangle with a vertical gradient between the specified colors (ARGB format). Args : x1, y1, x2, y2,
      * topColor, bottomColor
@@ -119,17 +120,17 @@ public class Gui
     /**
      * Renders the specified text to the screen, center-aligned. Args : renderer, string, x, y, color
      */
-    public void drawCenteredString(FontRenderer fontRendererIn, String text, int x, int y, int color)
+    public void drawCenteredString(FontRenderer FontRendererIn, String text, int x, int y, int color)
     {
-        fontRendererIn.drawStringWithShadow(text, (float)(x - fontRendererIn.getStringWidth(text) / 2), (float)y, color);
+        FontRendererIn.drawStringWithShadow(text, (float)(x - FontRendererIn.getStringWidth(text) / 2), (float)y, color);
     }
 
     /**
      * Renders the specified text to the screen. Args : renderer, string, x, y, color
      */
-    public void drawString(FontRenderer fontRendererIn, String text, int x, int y, int color)
+    public void drawString(FontRenderer FontRendererIn, String text, int x, int y, int color)
     {
-        fontRendererIn.drawStringWithShadow(text, (float)x, (float)y, color);
+        FontRendererIn.drawStringWithShadow(text, (float)x, (float)y, color);
     }
 
     /**
@@ -196,6 +197,20 @@ public class Gui
         worldrenderer.pos((double)(x + width), (double)y, 0.0D).tex((double)((u + (float)width) * f), (double)(v * f1)).endVertex();
         worldrenderer.pos((double)x, (double)y, 0.0D).tex((double)(u * f), (double)(v * f1)).endVertex();
         tessellator.draw();
+    }
+    public static void drawModalRectWithCustomSizedTexture(float x, float y, float u, float v, float width, float height, float textureWidth, float textureHeight) {
+
+        float f = 1.0F / textureWidth;
+        float f1 = 1.0F / textureHeight;
+        Tessellator tessellator = Tessellator.getInstance();
+        WorldRenderer worldrenderer = tessellator.getWorldRenderer();
+        worldrenderer.begin(7, DefaultVertexFormats.POSITION_TEX);
+        worldrenderer.pos(x, y + height, 0.0D).tex(u * f, (v + height) * f1).endVertex();
+        worldrenderer.pos(x + width, y + height, 0.0D).tex((u + width) * f, (v + height) * f1).endVertex();
+        worldrenderer.pos(x + width, y, 0.0D).tex((u + width) * f, v * f1).endVertex();
+        worldrenderer.pos(x, y, 0.0D).tex(u * f, v * f1).endVertex();
+        tessellator.draw();
+
     }
 
     /**

@@ -35,18 +35,18 @@ public class GuiScreenRealmsProxy extends GuiScreen
 
     public void func_154325_a(String p_154325_1_, int p_154325_2_, int p_154325_3_, int p_154325_4_)
     {
-        super.drawCenteredString(this.fontRendererObj, p_154325_1_, p_154325_2_, p_154325_3_, p_154325_4_);
+        super.drawCenteredString(this.FontRendererObj, p_154325_1_, p_154325_2_, p_154325_3_, p_154325_4_);
     }
 
     public void a(String p_a_1_, int p_a_2_, int p_a_3_, int p_a_4_, boolean p_a_5_)
     {
         if (p_a_5_)
         {
-            super.drawString(this.fontRendererObj, p_a_1_, p_a_2_, p_a_3_, p_a_4_);
+            super.drawString(this.FontRendererObj, p_a_1_, p_a_2_, p_a_3_, p_a_4_);
         }
         else
         {
-            this.fontRendererObj.drawString(p_a_1_, p_a_2_, p_a_3_, p_a_4_);
+            this.FontRendererObj.drawString(p_a_1_, p_a_2_, p_a_3_, p_a_4_);
         }
     }
 
@@ -130,22 +130,22 @@ public class GuiScreenRealmsProxy extends GuiScreen
 
     public int func_154329_h()
     {
-        return this.fontRendererObj.FONT_HEIGHT;
+        return this.FontRendererObj.FONT_HEIGHT;
     }
 
     public int func_154326_c(String p_154326_1_)
     {
-        return this.fontRendererObj.getStringWidth(p_154326_1_);
+        return this.FontRendererObj.getStringWidth(p_154326_1_);
     }
 
     public void func_154322_b(String p_154322_1_, int p_154322_2_, int p_154322_3_, int p_154322_4_)
     {
-        this.fontRendererObj.drawStringWithShadow(p_154322_1_, (float)p_154322_2_, (float)p_154322_3_, p_154322_4_);
+        this.FontRendererObj.drawStringWithShadow(p_154322_1_, (float)p_154322_2_, (float)p_154322_3_, p_154322_4_);
     }
 
     public List<String> func_154323_a(String p_154323_1_, int p_154323_2_)
     {
-        return this.fontRendererObj.listFormattedStringToWidth(p_154323_1_, p_154323_2_);
+        return this.FontRendererObj.listFormattedStringToWidth(p_154323_1_, p_154323_2_);
     }
 
     /**

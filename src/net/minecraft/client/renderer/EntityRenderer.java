@@ -724,7 +724,7 @@ public class EntityRenderer implements IResourceManagerReloadListener
     /**
      * sets up player's eye (or camera in third person mode)
      */
-    private void orientCamera(float partialTicks)
+    public void orientCamera(float partialTicks)
     {
         Entity entity = this.mc.getRenderViewEntity();
         float f = entity.getEyeHeight();
@@ -1357,6 +1357,9 @@ public class EntityRenderer implements IResourceManagerReloadListener
 
                 if (!this.mc.gameSettings.thirdPersonView || this.mc.currentScreen != null)
                 {
+                    if (this.mc.currentScreen != null) {
+                        this.mc.currentScreen.onDrag(k1, l1);
+                    }
                     GlStateManager.alphaFunc(516, 0.1F);
                     this.mc.ingameGUI.renderGameOverlay(partialTicks);
 
@@ -1383,7 +1386,7 @@ public class EntityRenderer implements IResourceManagerReloadListener
                 this.setupOverlayRendering();
                 this.renderEndNanoTime = System.nanoTime();
                 TileEntityRendererDispatcher.instance.renderEngine = this.mc.getTextureManager();
-                TileEntityRendererDispatcher.instance.fontRenderer = this.mc.fontRendererObj;
+                TileEntityRendererDispatcher.instance.FontRenderer = this.mc.FontRendererObj;
             }
 
             if (this.mc.currentScreen != null)

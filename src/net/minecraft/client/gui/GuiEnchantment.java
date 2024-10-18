@@ -66,8 +66,8 @@ public class GuiEnchantment extends GuiContainer
      */
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY)
     {
-        this.fontRendererObj.drawString(this.field_175380_I.getDisplayName().getUnformattedText(), 12, 5, 4210752);
-        this.fontRendererObj.drawString(this.playerInventory.getDisplayName().getUnformattedText(), 8, this.ySize - 96 + 2, 4210752);
+        this.FontRendererObj.drawString(this.field_175380_I.getDisplayName().getUnformattedText(), 12, 5, 4210752);
+        this.FontRendererObj.drawString(this.playerInventory.getDisplayName().getUnformattedText(), 8, this.ySize - 96 + 2, 4210752);
     }
 
     /**
@@ -220,7 +220,7 @@ public class GuiEnchantment extends GuiContainer
                     i2 = 8453920;
                 }
 
-                fontrenderer = this.mc.fontRendererObj;
+                fontrenderer = this.mc.FontRendererObj;
                 fontrenderer.drawStringWithShadow(s1, (float)(j1 + 86 - fontrenderer.getStringWidth(s1)), (float)(j + 16 + 19 * l + 7), i2);
             }
         }

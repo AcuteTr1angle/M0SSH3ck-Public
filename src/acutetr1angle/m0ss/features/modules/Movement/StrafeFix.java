@@ -6,6 +6,7 @@ import acutetr1angle.m0ss.event.events.JumpEvent;
 import acutetr1angle.m0ss.event.events.MotionUpdateEvent;
 import acutetr1angle.m0ss.event.events.MovementInputEvent;
 import acutetr1angle.m0ss.event.events.StrafeEvent;
+
 import acutetr1angle.m0ss.features.modules.Module;
 import net.minecraft.util.MathHelper;
 
@@ -14,7 +15,7 @@ public class StrafeFix extends Module {
     private boolean needUpdate;
 
     public StrafeFix() {
-        super("StrafeFix",Category.Movement);
+        super("StrafeFix", Category.MOVEMENT);
     }
 
     public void setAngle(float[] angle) {

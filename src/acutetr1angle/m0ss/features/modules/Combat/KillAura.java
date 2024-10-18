@@ -4,6 +4,7 @@ import acutetr1angle.m0ss.Client;
 import acutetr1angle.m0ss.event.annotations.EventTarget;
 import acutetr1angle.m0ss.event.events.MotionUpdateEvent;
 import acutetr1angle.m0ss.event.events.PlayerUpdateEvent;
+
 import acutetr1angle.m0ss.features.modules.Module;
 import acutetr1angle.m0ss.features.modules.Movement.StrafeFix;
 import acutetr1angle.m0ss.utils.Timer;
@@ -14,13 +15,13 @@ import net.minecraft.util.MathHelper;
 
 public class KillAura extends Module {
     public KillAura() {
-        super("KillAura","Test",Category.Combat);
+        super("KillAura","Test", Category.COMBAT);
     }
     private float[] angle;
     private final Timer attackTimer = new Timer();
     @EventTarget
     public void onMotion(MotionUpdateEvent event) {
-        if (!Client.instance.getModuleManager().getModule("StrafeFix").inOn()) {
+        if (!Client.instance.getModuleManager().getModule("StrafeFix").isOn()) {
             if (angle != null) {
                 event.setYaw(angle[0]);
                 event.setPitch(angle[1]);

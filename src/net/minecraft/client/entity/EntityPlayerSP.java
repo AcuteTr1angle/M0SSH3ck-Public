@@ -1,6 +1,7 @@
 package net.minecraft.client.entity;
 
 import acutetr1angle.m0ss.Client;
+import acutetr1angle.m0ss.event.events.ChatEvent;
 import acutetr1angle.m0ss.event.events.MotionUpdateEvent;
 import acutetr1angle.m0ss.event.events.PlayerUpdateEvent;
 import acutetr1angle.m0ss.features.command.Command;
@@ -306,6 +307,8 @@ public class EntityPlayerSP extends AbstractClientPlayer
                 addChatMessage(new ChatComponentText(EnumChatFormatting.RED + "Unknown Command!"));
             }
         } else {
+            ChatEvent.Send send = new ChatEvent.Send(message);
+            Client.instance.getEventManager().call(send);
             this.sendQueue.addToSendQueue(new C01PacketChatMessage(message));
         }
     }

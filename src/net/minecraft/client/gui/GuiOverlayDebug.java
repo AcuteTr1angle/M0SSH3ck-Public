@@ -36,7 +36,7 @@ import org.lwjgl.opengl.GL11;
 public class GuiOverlayDebug extends Gui
 {
     private final Minecraft mc;
-    private final FontRenderer fontRenderer;
+    private final FontRenderer FontRenderer;
     private String debugOF = null;
     private List<String> debugInfoLeft = null;
     private List<String> debugInfoRight = null;
@@ -46,7 +46,7 @@ public class GuiOverlayDebug extends Gui
     public GuiOverlayDebug(Minecraft mc)
     {
         this.mc = mc;
-        this.fontRenderer = mc.fontRendererObj;
+        this.FontRenderer = mc.FontRendererObj;
     }
 
     public void renderDebugInfo(ScaledResolution scaledResolutionIn)
@@ -87,12 +87,12 @@ public class GuiOverlayDebug extends Gui
 
             if (!Strings.isNullOrEmpty(s))
             {
-                int j = this.fontRenderer.FONT_HEIGHT;
-                int k = this.fontRenderer.getStringWidth(s);
+                int j = this.FontRenderer.FONT_HEIGHT;
+                int k = this.FontRenderer.getStringWidth(s);
                 int l = 2;
                 int i1 = 2 + j * i;
                 drawRect(1, i1 - 1, 2 + k + 1, i1 + j - 1, -1873784752);
-                this.fontRenderer.drawString(s, 2, i1, 14737632);
+                this.FontRenderer.drawString(s, 2, i1, 14737632);
             }
         }
     }
@@ -114,12 +114,12 @@ public class GuiOverlayDebug extends Gui
 
             if (!Strings.isNullOrEmpty(s))
             {
-                int j = this.fontRenderer.FONT_HEIGHT;
-                int k = this.fontRenderer.getStringWidth(s);
+                int j = this.FontRenderer.FONT_HEIGHT;
+                int k = this.FontRenderer.getStringWidth(s);
                 int l = scaledRes.getScaledWidth() - 2 - k;
                 int i1 = 2 + j * i;
                 drawRect(l - 1, i1 - 1, l + k + 1, i1 + j - 1, -1873784752);
-                this.fontRenderer.drawString(s, l, i1, 14737632);
+                this.FontRenderer.drawString(s, l, i1, 14737632);
             }
         }
     }

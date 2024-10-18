@@ -4,7 +4,7 @@ import acutetr1angle.m0ss.features.modules.Module;
 
 public class FullBright extends Module {
     public FullBright() {
-        super("FullBright",Category.Render);
+        super("FullBright", Category.RENDER);
     }
     @Override
     public void onEnable() {
