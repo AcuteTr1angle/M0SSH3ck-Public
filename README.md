@@ -48,6 +48,5 @@ ___
 ---
 ## Screenshots
 
-![Kzwbz](https://free2.yunpng.top/2024/10/21/67166525dd106.png)
 
 ![MagicNumber](https://free2.yunpng.top/2024/10/21/671665ba94e5f.jpg)
