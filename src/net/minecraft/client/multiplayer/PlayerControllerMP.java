@@ -284,6 +284,7 @@ public class PlayerControllerMP
 
     public boolean onPlayerDamageBlock(BlockPos posBlock, EnumFacing directionFacing)
     {
+        Block block = this.mc.theWorld.getBlockState(posBlock).getBlock();
         this.syncCurrentPlayItem();
 
         if (this.blockHitDelay > 0)
@@ -291,7 +292,7 @@ public class PlayerControllerMP
             --this.blockHitDelay;
             return true;
         }
-        else if (this.currentGameType.isCreative() && this.mc.theWorld.getWorldBorder().contains(posBlock))
+        else if (this.currentGameType.isCreative() && this.mc.theWorld.getWorldBorder().contains(posBlock) && block.getMaterial() != Material.air)
         {
             this.blockHitDelay = 5;
             this.netClientHandler.addToSendQueue(new C07PacketPlayerDigging(C07PacketPlayerDigging.Action.START_DESTROY_BLOCK, posBlock, directionFacing));
@@ -300,7 +301,6 @@ public class PlayerControllerMP
         }
         else if (this.isHittingPosition(posBlock))
         {
-            Block block = this.mc.theWorld.getBlockState(posBlock).getBlock();
 
             if (block.getMaterial() == Material.air)
             {
@@ -318,17 +318,18 @@ public class PlayerControllerMP
 
                 ++this.stepSoundTickCounter;
 
-                if (this.curBlockDamageMP >= 1.0F)
-                {
+                if (this.curBlockDamageMP >= 1.0F) {
                     this.isHittingBlock = false;
-                    this.netClientHandler.addToSendQueue(new C07PacketPlayerDigging(C07PacketPlayerDigging.Action.STOP_DESTROY_BLOCK, posBlock, directionFacing));
-                    this.onPlayerDestroyBlock(posBlock, directionFacing);
+                    if (!mc.thePlayer.isUsingItem()) {
+                        this.netClientHandler.addToSendQueue(new C07PacketPlayerDigging(C07PacketPlayerDigging.Action.STOP_DESTROY_BLOCK, posBlock, directionFacing));
+                        this.onPlayerDestroyBlock(posBlock, directionFacing);
+                }
                     this.curBlockDamageMP = 0.0F;
                     this.stepSoundTickCounter = 0.0F;
                     this.blockHitDelay = 5;
                 }
 
-                this.mc.theWorld.sendBlockBreakProgress(this.mc.thePlayer.getEntityId(), this.currentBlock, (int)(this.curBlockDamageMP * 10.0F) - 1);
+                if (!mc.thePlayer.isUsingItem()) this.mc.theWorld.sendBlockBreakProgress(this.mc.thePlayer.getEntityId(), this.currentBlock, (int)(this.curBlockDamageMP * 10.0F) - 1);
                 return true;
             }
         }

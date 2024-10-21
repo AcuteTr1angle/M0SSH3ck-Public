@@ -91,7 +91,7 @@ public class GuiOverlayDebug extends Gui
                 int k = this.FontRenderer.getStringWidth(s);
                 int l = 2;
                 int i1 = 2 + j * i;
-                drawRect(1, i1 - 1, 2 + k + 1, i1 + j - 1, -1873784752);
+                //drawRect(1, i1 - 1, 2 + k + 1, i1 + j - 1, -1873784752); //去除background
                 this.FontRenderer.drawString(s, 2, i1, 14737632);
             }
         }
@@ -118,7 +118,7 @@ public class GuiOverlayDebug extends Gui
                 int k = this.FontRenderer.getStringWidth(s);
                 int l = scaledRes.getScaledWidth() - 2 - k;
                 int i1 = 2 + j * i;
-                drawRect(l - 1, i1 - 1, l + k + 1, i1 + j - 1, -1873784752);
+                //drawRect(l - 1, i1 - 1, l + k + 1, i1 + j - 1, -1873784752); //去除background
                 this.FontRenderer.drawString(s, l, i1, 14737632);
             }
         }

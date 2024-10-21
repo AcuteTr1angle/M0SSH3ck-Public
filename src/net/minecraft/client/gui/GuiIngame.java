@@ -212,7 +212,7 @@ public class GuiIngame extends Gui
             }
 
             int k = (int)(220.0F * f1) << 24 | 1052704;
-            drawRect(0, 0, i, j, k);
+            //drawRect(0, 0, i, j, k); //去除background
             GlStateManager.enableAlpha();
             GlStateManager.enableDepth();
             this.mc.mcProfiler.endSection();
@@ -605,15 +605,15 @@ public class GuiIngame extends Gui
             String s2 = EnumChatFormatting.RED + "" + score1.getScorePoints();
             int k = j1 - j * this.getFontRenderer().FONT_HEIGHT;
             int l = scaledRes.getScaledWidth() - k1 + 2;
-            drawRect(l1 - 2, k, l, k + this.getFontRenderer().FONT_HEIGHT, 1342177280);
+            //drawRect(l1 - 2, k, l, k + this.getFontRenderer().FONT_HEIGHT, 1342177280); //去除background
             this.getFontRenderer().drawString(s1, l1, k, 553648127);
-            this.getFontRenderer().drawString(s2, l - this.getFontRenderer().getStringWidth(s2), k, 553648127);
+            //this.getFontRenderer().drawString(s2, l - this.getFontRenderer().getStringWidth(s2), k, 553648127);  //去除红色数字
 
             if (j == collection.size())
             {
                 String s3 = objective.getDisplayName();
-                drawRect(l1 - 2, k - this.getFontRenderer().FONT_HEIGHT - 1, l, k - 1, 1610612736);
-                drawRect(l1 - 2, k - 1, l, k, 1342177280);
+                //drawRect(l1 - 2, k - this.getFontRenderer().FONT_HEIGHT - 1, l, k - 1, 1610612736); //去除background
+                //drawRect(l1 - 2, k - 1, l, k, 1342177280); //去除background
                 this.getFontRenderer().drawString(s3, l1 + i / 2 - this.getFontRenderer().getStringWidth(s3) / 2, k - this.getFontRenderer().FONT_HEIGHT, 553648127);
             }
         }

@@ -15,6 +15,8 @@ import java.net.URISyntaxException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
+
+import lombok.val;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.stream.GuiTwitchUserMode;
 import net.minecraft.client.renderer.GlStateManager;
@@ -634,11 +636,12 @@ public abstract class GuiScreen extends Gui implements GuiYesNoCallback
     /**
      * Handles keyboard input.
      */
-    public void handleKeyboardInput() throws IOException
-    {
-        if (Keyboard.getEventKeyState())
+    public void handleKeyboardInput() throws IOException {
+        char eventCharacter = Keyboard.getEventCharacter();
+        int eventKey = Keyboard.getEventKey();
+        if (Keyboard.getEventKeyState() || eventCharacter >= ' ' && eventKey == 0)
         {
-            this.keyTyped(Keyboard.getEventCharacter(), Keyboard.getEventKey());
+            this.keyTyped(eventCharacter, eventKey);
         }
 
         this.mc.dispatchKeypresses();

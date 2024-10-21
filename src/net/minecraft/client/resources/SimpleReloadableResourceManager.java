@@ -11,10 +11,22 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+import net.minecraft.client.audio.SoundHandler;
+import net.minecraft.client.gui.FontRenderer;
+import net.minecraft.client.gui.GuiLanguage;
+import net.minecraft.client.renderer.BlockRendererDispatcher;
+import net.minecraft.client.renderer.EntityRenderer;
+import net.minecraft.client.renderer.RenderGlobal;
+import net.minecraft.client.renderer.entity.RenderItem;
+import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.client.resources.data.IMetadataSerializer;
+import net.minecraft.client.resources.model.ModelManager;
 import net.minecraft.util.ResourceLocation;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import static acutetr1angle.m0ss.Client.mc;
 
 public class SimpleReloadableResourceManager implements IReloadableResourceManager
 {
@@ -113,9 +125,8 @@ public class SimpleReloadableResourceManager implements IReloadableResourceManag
 
     private void notifyReloadListeners()
     {
-        for (IResourceManagerReloadListener iresourcemanagerreloadlistener : this.reloadListeners)
-        {
-            iresourcemanagerreloadlistener.onResourceManagerReload(this);
+        for (IResourceManagerReloadListener listener : this.reloadListeners) {
+                listener.onResourceManagerReload(this);
         }
     }
 }
