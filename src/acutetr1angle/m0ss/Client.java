@@ -9,8 +9,8 @@ import net.minecraft.client.Minecraft;
 import org.lwjgl.opengl.Display;
 @Getter
 public class Client {
-    public static final String NAME = "KzwbzFurryClient";
-    public static final String VERISON = "0.0.2 - Private";
+    public static final String NAME = "M0SSh3ck";
+    public static final String VERISON = "0.0.1-Public";
     public static Minecraft mc = Minecraft.getMinecraft();
     public static Client instance;
     public EventManager eventManager;
